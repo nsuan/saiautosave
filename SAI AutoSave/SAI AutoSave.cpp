@@ -1,7 +1,8 @@
 // SAI AutoSave.cpp : Defines the entry point for the console application.
 //
-#define MINUTE_WAIT 1L
 #include "stdafx.h"
+#define MINUTE_WAIT 1L
+
 
 BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam) {
 	TCHAR className[MAX_PATH];
@@ -23,12 +24,10 @@ BOOL CALLBACK EnumWindowsProc(HWND hWnd, LPARAM lParam) {
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
-	HWND saiWindow;
 	while (true) {
 		FreeConsole();
-		Sleep(5 * 60 * 1000); // sleep five minutes
+		Sleep(MINUTE_WAIT * 60 * 1000); // sleep five minutes
 		EnumWindows(EnumWindowsProc,NULL);
-		//Sleep(1);
 	}
 	return 0;
 }
